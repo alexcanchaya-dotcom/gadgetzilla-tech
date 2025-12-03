@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg-gradient: linear-gradient(135deg, rgba(181, 55, 242, 0.15), rgba(0, 217, 255, 0.12), rgba(255, 0, 110, 0.12));
+}
+
+body {
+  background-color: #0a0e27;
+  color: #e5e7eb;
+  background-image:
+    linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px),
+    var(--bg-gradient);
+  background-size: 80px 80px, 80px 80px, 100% 100%;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+.glass-panel {
+  background: rgba(17, 24, 39, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+}
+
+.neon-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-border::before {
+  content: '';
+  position: absolute;
+  inset: -40%;
+  background: conic-gradient(from 90deg, rgba(0, 217, 255, 0.6), rgba(181, 55, 242, 0.5), rgba(255, 0, 110, 0.55), rgba(0, 217, 255, 0.6));
+  animation: spin 9s linear infinite;
+  opacity: 0.6;
+}
+
+.neon-border::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: rgba(10, 14, 39, 0.92);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.neon-border > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-gradient {
+  background: linear-gradient(120deg, rgba(0, 217, 255, 0.18), rgba(181, 55, 242, 0.2), rgba(255, 0, 110, 0.15));
+  filter: blur(80px);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
