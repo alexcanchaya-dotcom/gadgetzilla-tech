@@ -74,7 +74,8 @@ export function TrendingGrid({ gadgets }: Props) {
               >
                 Amazon Affiliate Link
               </a>
-              <motion.button
+<a href={gadget.amazonUrl}>
+                            <motion.button
                 whileHover={{ scale: 1.06, boxShadow: '0 0 25px rgba(0, 217, 255, 0.4)' }}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center gap-2 rounded-full border border-neonBlue/60 bg-gradient-to-r from-neonBlue/60 via-cyberPurple/70 to-hotPink/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-night"
@@ -82,6 +83,7 @@ export function TrendingGrid({ gadgets }: Props) {
                 <span className="h-2 w-2 rounded-full bg-limePulse" aria-hidden />
                 Get Yours
               </motion.button>
+              </a>
             </div>
           </div>
         </motion.article>
