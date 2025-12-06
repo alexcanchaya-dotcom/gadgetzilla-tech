@@ -23,7 +23,7 @@ export const gadgets: Gadget[] = [
     badge: 'HOT',
     description: 'Wireless RGB gaming headset with Lightsync, Blue VO!CE mic tech, and PRO-G drivers for pro-level audio.',
     image: 'https://images.unsplash.com/photo-1599669454699-248893623440?auto=format&fit=crop&w=900&q=80',
-    amazonUrl: 'https://www.amazon.com/dp/B08D8BYRGV?tag=gadgetzilla-20',
+    amazonUrl: 'https://www.amazon.com/dp/B081415GCS?tag=gadgetzilla-20',
     tags: ['Wireless', 'RGB Lighting', '29hr Battery']
   },
   {
@@ -35,7 +35,7 @@ export const gadgets: Gadget[] = [
     badge: 'TRENDING',
     description: 'Hot-swappable magnetic switches, rapid trigger tech, RGB per-key backlighting for ultimate gaming precision.',
     image: 'https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=900&q=80',
-    amazonUrl: 'https://www.amazon.com/dp/B0CX6S4QKS?tag=gadgetzilla-20',
+    amazonUrl: 'https://www.amazon.com/dp/B0DSFLS9H3?tag=gadgetzilla-20',
     tags: ['Hot-Swap', 'RGB', 'Rapid Trigger']
   },
   {
@@ -59,7 +59,7 @@ export const gadgets: Gadget[] = [
     badge: 'TRENDING',
     description: '165Hz refresh rate, 1ms response time, G-SYNC compatible for buttery-smooth competitive gaming.',
     image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=900&q=80',
-    amazonUrl: 'https://www.amazon.com/dp/B088MLC3HK?tag=gadgetzilla-20',
+    amazonUrl: 'https://www.amazon.com/dp/B0BHKCQBMN?tag=gadgetzilla-20',
     tags: ['165Hz', '1440P', 'G-SYNC']
   },
   {
@@ -71,7 +71,7 @@ export const gadgets: Gadget[] = [
     badge: 'TRENDING',
     description: 'Active noise cancellation, adaptive transparency, personalized spatial audio with dynamic head tracking.',
     image: 'https://images.unsplash.com/photo-1606841837239-c5a1a4a07af7?auto=format&fit=crop&w=900&q=80',
-    amazonUrl: 'https://www.amazon.com/dp/B0D1XD1ZV3?tag=gadgetzilla-20',
+    amazonUrl: 'https://www.amazon.com/dp/B0CHWRXH8B?tag=gadgetzilla-20',
     tags: ['ANC', 'Spatial Audio', 'USB-C']
   },
   {
@@ -95,7 +95,7 @@ export const gadgets: Gadget[] = [
     badge: 'TRENDING',
     description: 'Textured grips, hybrid D-pad, Bluetooth wireless for Xbox, PC, mobile with 40hr battery life.',
     image: 'https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&fit=crop&w=900&q=80',
-    amazonUrl: 'https://www.amazon.com/dp/B08DF26MXW?tag=gadgetzilla-20',
+    amazonUrl: 'https://www.amazon.com/dp/B08DF248LD?tag=gadgetzilla-20',
     tags: ['Wireless', '40hr Battery', 'Multi-platform']
   },
   {
