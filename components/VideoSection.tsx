@@ -1,8 +1,12 @@
 'use client';
 
 import { featuredVideos } from '@/data/videos';
-import { Play } from 'lucide-react';
 
+// Simple Play Icon SVG Component
+const PlayIcon = ({ className = '' }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+  </svg>
 export default function VideoSection() {
   return (
     <section className="py-20 px-6">
