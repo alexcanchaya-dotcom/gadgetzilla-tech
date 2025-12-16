@@ -7,6 +7,7 @@ import { CategoryFilters } from '@/components/CategoryFilters';
 import { TrendingGrid } from '@/components/TrendingGrid';
 import { FeatureHighlights } from '@/components/FeatureHighlights';
 import { Footer } from '@/components/Footer';
+import VideoSection from '@/components/VideoSection';
 import { gadgets as allGadgets, type Gadget, type GadgetCategory } from '@/data/gadgets';
 
 const counterData = {
@@ -31,6 +32,9 @@ export default function HomePage() {
       </motion.div>
 
       <section className="rounded-3xl border border-white/10 bg-night/70 p-6 shadow-glow sm:p-8" id="trending">
+
+              {/* YouTube Video Section */}
+      <VideoSection />
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-neonBlue">Trending gear</p>
