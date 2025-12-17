@@ -1,4 +1,4 @@
-export type GadgetCategory = Gaming Gear | Smart Home | Audio | Wearables | PC Components;
+export type GadgetCategory = 'Gaming Gear' | 'Smart Home' | 'Audio' | 'Wearables' | 'PC Components';
 
 export type Gadget = {
   id: string;
