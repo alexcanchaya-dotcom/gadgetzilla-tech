@@ -2,11 +2,13 @@
 
 import { featuredVideos } from '@/data/videos';
 
-// Simple Play Icon SVG Component
-const PlayIcon = ({ className = '' }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+// Simple Play Icon Component
+const PlayIcon = () => (
+  <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
     <polygon points="5 3 19 12 5 21 5 3"></polygon>
   </svg>
+);
+
 export default function VideoSection() {
   return (
     <section className="py-20 px-6">
@@ -32,7 +34,7 @@ export default function VideoSection() {
               href={`https://www.youtube.com/watch?v=${video.videoId}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-[1.02]"
+              className="group relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105"
             >
               {/* Thumbnail */}
               <div className="relative aspect-video overflow-hidden">
@@ -44,7 +46,7 @@ export default function VideoSection() {
                 {/* Play Button Overlay */}
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors flex items-center justify-center">
                   <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Play className="w-8 h-8 text-white fill-white ml-1" />
+                    <PlayIcon />
                   </div>
                 </div>
                 {/* Duration Badge */}
@@ -81,7 +83,9 @@ export default function VideoSection() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold rounded-full transition-all hover:scale-105"
           >
-            <Play className="w-5 h-5" />
+            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
             Watch More Reviews
           </a>
         </div>
