@@ -320,7 +320,7 @@ export const gadgets: Gadget[] = [
     price: '$349',
     score: 98,
     badge: 'HOT',
-    description: 'Premium wireless gaming headset, dual battery system, active noise cancellation, 360° spatial audio, GameDAC Gen 2.',
+    description: 'Premium wireless gaming headset, dual battery system, active noise cancellation, 360-degree spatial audio, GameDAC Gen 2.',
     image: 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&w=900',
     amazonUrl: 'https://www.amazon.com/dp/B09ZYQR4DQ?tag=gadgetzilla07-20',
     tags: ['WIRELESS', 'ANC', 'PREMIUM']
