@@ -6,15 +6,27 @@ import type { GadgetCategory } from '@/data/gadgets';
 type Props = {
   active: GadgetCategory | 'All';
   onSelect: (category: GadgetCategory | 'All') => void;
+  counts?: Record<string, number>;
 };
 
 const categories: (GadgetCategory | 'All')[] = ['All', 'Gaming Gear', 'Smart Home', 'Audio', 'Wearables', 'PC Components'];
 
-export function CategoryFilters({ active, onSelect }: Props) {
+const categoryIcons: Record<string, string> = {
+  'All': '🎯',
+  'Gaming Gear': '🎮',
+  'Smart Home': '🏠',
+  'Audio': '🎧',
+  'Wearables': '⌚',
+  'PC Components': '🖥️'
+};
+
+export function CategoryFilters({ active, onSelect, counts }: Props) {
   return (
     <div className="flex flex-wrap gap-3">
       {categories.map((category) => {
         const isActive = active === category;
+        const count = counts?.[category] || 0;
+
         return (
           <motion.button
             key={category}
@@ -28,7 +40,17 @@ export function CategoryFilters({ active, onSelect }: Props) {
             }`}
           >
             {isActive && <span className="absolute inset-0 bg-white/10" aria-hidden />}
-            <span className="relative">{category}</span>
+            <span className="relative flex items-center gap-2">
+              <span>{categoryIcons[category]}</span>
+              <span>{category}</span>
+              {counts && (
+                <span className={`ml-1 rounded-full px-2 py-0.5 text-[10px] ${
+                  isActive ? 'bg-white/20 text-white' : 'bg-white/10 text-white/50'
+                }`}>
+                  {count}
+                </span>
+              )}
+            </span>
           </motion.button>
         );
       })}
