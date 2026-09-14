@@ -41,7 +41,7 @@ export function formatCatalogUpdatedAt(iso: string = catalogUpdatedAt): string {
     month: 'short',
     day: 'numeric',
     year: 'numeric',
-    timeZone: 'America/Los_Angeles',
+    timeZone: 'UTC',
   }).format(new Date(iso));
 }
 

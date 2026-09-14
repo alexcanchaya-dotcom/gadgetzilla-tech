@@ -18,6 +18,7 @@ import {
   gadgets as allGadgets,
   formatCatalogUpdatedAt,
   getNewProducts,
+  isNewFromLastRefresh,
   type CatalogFilter,
   type Gadget,
 } from '@/data/gadgets';
@@ -29,9 +30,14 @@ export default function HomePage() {
   const newGadgets = useMemo(() => getNewProducts(), []);
 
   const filtered: Gadget[] = useMemo(() => {
-    if (activeCategory === 'All') return allGadgets;
-    if (activeCategory === 'New') return newGadgets;
-    return allGadgets.filter((g) => g.category === activeCategory);
+    const list =
+      activeCategory === 'All'
+        ? allGadgets
+        : activeCategory === 'New'
+          ? newGadgets
+          : allGadgets.filter((g) => g.category === activeCategory);
+
+    return [...list].sort((a, b) => Number(isNewFromLastRefresh(b)) - Number(isNewFromLastRefresh(a)));
   }, [activeCategory, newGadgets]);
 
   const categoryCounts = useMemo(() => {
