@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { legalLinks, navLinks, SITE_NAME } from '@/lib/site';
+import { navLinks, SITE_NAME } from '@/lib/site';
 
 export function SiteHeader() {
   return (
@@ -13,8 +13,11 @@ export function SiteHeader() {
             {link.label}
           </Link>
         ))}
-        <Link href={legalLinks[3].href} className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 hover:border-neonBlue/50 hover:text-white">
-          Disclosure
+        <Link href="/" className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 hover:border-neonBlue/50 hover:text-white">
+          Catalog
+        </Link>
+        <Link href="/contact" className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 hover:border-neonBlue/50 hover:text-white">
+          Contact
         </Link>
       </nav>
     </header>

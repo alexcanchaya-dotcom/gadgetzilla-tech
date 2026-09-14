@@ -28,15 +28,15 @@ export default function AffiliateDisclosurePage() {
       </ul>
       <h2>How we pick products</h2>
       <p>
-        Picks are editorial. We keep them in a public catalog file and refresh that file with a script, not by scraping Amazon in your browser. A commission does not change the listed hype score.
+        Picks are editorial. We keep them in a public catalog file. We do not scrape Amazon from your browser, and we do not invent a hype score or a “hot deal” badge.
       </p>
       <h2>Other disclosures</h2>
       <p>
         If we ever run a paid placement that is not a standard Associate link, we will mark it as sponsored. Display ads only appear if a real AdSense publisher ID is configured.
       </p>
       <p>
-        Questions: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Related: <Link href="/privacy">privacy policy</Link> and{' '}
-        <Link href="/about">about</Link>.
+        Questions: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Related: <Link href="/privacy">privacy</Link>,{' '}
+        <Link href="/terms">terms</Link>, and <Link href="/about">about</Link>.
       </p>
     </LegalPage>
   );

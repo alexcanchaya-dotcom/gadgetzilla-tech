@@ -57,7 +57,7 @@ export default function PrivacyPage() {
       <h2>Changes</h2>
       <p>
         We will update this page when the collection practices change. The date at the top is the latest revision. See also our{' '}
-        <Link href="/affiliate-disclosure">affiliate disclosure</Link>.
+        <Link href="/terms">terms</Link> and <Link href="/affiliate-disclosure">affiliate disclosure</Link>.
       </p>
     </LegalPage>
   );

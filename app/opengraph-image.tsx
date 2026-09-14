@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export const alt = 'GadgetZilla - Legendary Gaming Gadgets';
+export const alt = 'GadgetZilla - curated gadgets for gamers';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -23,10 +23,10 @@ export default function OpenGraphImage() {
           gadgetzilla.tech
         </div>
         <div style={{ display: 'flex', fontSize: 72, fontWeight: 700, marginTop: 16, lineHeight: 1.1 }}>
-          Legendary gadgets for gamers
+          Curated gadgets for gamers
         </div>
         <div style={{ display: 'flex', fontSize: 28, color: '#cbd5e1', marginTop: 24 }}>
-          Curated gear. Real Amazon links. Updated catalog date on the grid.
+          Amazon Associate catalog. Confirm prices on Amazon.
         </div>
       </div>
     ),

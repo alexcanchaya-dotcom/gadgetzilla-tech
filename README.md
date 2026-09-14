@@ -20,12 +20,13 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Trust pages
 
-These routes are real pages, not footer 404s:
+These routes ship first and are linked in the header:
 
 - `/about`
-- `/contact`
 - `/privacy`
+- `/terms`
 - `/affiliate-disclosure`
+- `/contact`
 
 Canonical host is the apex `https://gadgetzilla.tech`. `www.gadgetzilla.tech` redirects there.
 

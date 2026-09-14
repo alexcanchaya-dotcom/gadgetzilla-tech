@@ -28,7 +28,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/privacy`,
       lastModified: catalogDate,
       changeFrequency: 'yearly',
-      priority: 0.4,
+      priority: 0.6,
+    },
+    {
+      url: `${SITE_URL}/terms`,
+      lastModified: catalogDate,
+      changeFrequency: 'yearly',
+      priority: 0.6,
     },
     {
       url: `${SITE_URL}/affiliate-disclosure`,

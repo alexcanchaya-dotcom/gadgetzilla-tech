@@ -4,16 +4,18 @@ export const AFFILIATE_TAG = 'gadgetzilla07-20';
 export const CONTACT_EMAIL = 'hello@gadgetzilla.tech';
 
 export const navLinks = [
-  { href: '/#trending', label: 'Gadgets' },
   { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/privacy', label: 'Privacy' },
+  { href: '/terms', label: 'Terms' },
+  { href: '/affiliate-disclosure', label: 'Disclosure' },
 ] as const;
 
 export const legalLinks = [
   { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
   { href: '/privacy', label: 'Privacy' },
+  { href: '/terms', label: 'Terms' },
   { href: '/affiliate-disclosure', label: 'Affiliate disclosure' },
+  { href: '/contact', label: 'Contact' },
 ] as const;
 
 export function absoluteUrl(path = '/') {

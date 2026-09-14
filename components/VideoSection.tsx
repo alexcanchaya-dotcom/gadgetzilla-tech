@@ -29,16 +29,15 @@ export default function VideoSection() {
           viewport={{ once: true }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-hotPink/40 bg-hotPink/10 mb-4"
         >
-          <span className="h-2 w-2 rounded-full bg-hotPink animate-pulse" />
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-hotPink">Expert Reviews</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">YouTube</span>
         </motion.div>
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-neonBlue via-cyberPurple to-hotPink bg-clip-text text-transparent"
+          className="text-3xl md:text-4xl font-bold mb-4 text-white"
         >
-          Watch Before You Buy
+          Related videos
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}

@@ -52,20 +52,19 @@ export function NativeAdCard() {
         </span>
 
         <h3 className="text-xl font-bold text-white mb-2">
-          Level Up Your Setup
+          Amazon gaming accessories
         </h3>
         <p className="text-sm text-white/70 mb-4">
-          Amazon Associate link to gaming accessories. We may earn a commission if you buy.
+          Associate link to Amazon&apos;s gaming accessories node. We may earn a commission if you buy. Confirm price and stock there.
         </p>
 
         <a
           href="https://www.amazon.com/gaming-accessories/b?ie=UTF8&node=402053011&tag=gadgetzilla07-20"
           target="_blank"
           rel="noopener noreferrer sponsored"
-          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-neonBlue to-cyberPurple px-5 py-2.5 text-sm font-semibold uppercase tracking-wider text-night transition hover:shadow-neon"
+          className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-semibold uppercase tracking-wider text-white"
         >
-          <span className="h-2 w-2 rounded-full bg-limePulse animate-pulse" />
-          Shop on Amazon
+          Open Amazon
         </a>
       </div>
     </div>

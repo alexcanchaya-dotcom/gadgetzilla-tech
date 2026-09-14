@@ -11,10 +11,10 @@ const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
   title: {
-    default: 'GadgetZilla | Legendary Gadgets for Gamers & Tech Enthusiasts',
+    default: 'GadgetZilla | Curated gadgets for gamers',
     template: '%s | GadgetZilla',
   },
-  description: 'Discover the best gaming gear, smart home devices, and trending tech gadgets. Daily updated with expert reviews, RGB setups, and exclusive deals for gamers and tech lovers.',
+  description: 'Independent catalog of gaming gear, audio, wearables, smart home, and PC parts. Amazon Associate links. Prices are snapshots — confirm on Amazon.',
   keywords: ['gaming gadgets', 'tech gear', 'gaming accessories', 'RGB gaming', 'smart home', 'gaming peripherals', 'mechanical keyboards', 'gaming mice', 'gaming headsets', 'PC components', 'tech deals', 'gadget reviews', 'best gaming gear 2026', 'gaming setup', 'streamer gear'],
   authors: [{ name: 'GadgetZilla Team' }],
   creator: 'GadgetZilla',
@@ -27,15 +27,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: SITE_URL,
-    title: 'GadgetZilla | Legendary Gadgets for Gamers',
-    description: 'Level up your tech game with legendary gadgets, trending deals, and neon-infused content for gamers.',
+    title: 'GadgetZilla | Curated gadgets for gamers',
+    description: 'Independent gadget catalog with Amazon Associate links. Confirm prices on Amazon.',
     siteName: 'GadgetZilla',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GadgetZilla | Legendary Gadgets for Gamers',
-    description: 'Discover trending gaming gear, RGB setups, and exclusive tech deals.',
-    creator: '@gadgetzilla',
+    title: 'GadgetZilla | Curated gadgets for gamers',
+    description: 'Independent gadget catalog with Amazon Associate links.',
   },
   robots: {
     index: true,
