@@ -1,22 +1,23 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import type { GadgetCategory } from '@/data/gadgets';
+import type { CatalogFilter } from '@/data/gadgets';
 
 type Props = {
-  active: GadgetCategory | 'All';
-  onSelect: (category: GadgetCategory | 'All') => void;
+  active: CatalogFilter;
+  onSelect: (category: CatalogFilter) => void;
   counts?: Record<string, number>;
 };
 
-const categories: (GadgetCategory | 'All')[] = ['All', 'Gaming Gear', 'Smart Home', 'Audio', 'Wearables', 'PC Components'];
+const categories: CatalogFilter[] = ['All', 'New', 'Gaming Gear', 'Smart Home', 'Audio', 'Wearables', 'PC Components'];
 
 const categoryIcons: Record<string, string> = {
-  'All': '🎯',
+  All: '🎯',
+  New: '✨',
   'Gaming Gear': '🎮',
   'Smart Home': '🏠',
-  'Audio': '🎧',
-  'Wearables': '⌚',
+  Audio: '🎧',
+  Wearables: '⌚',
   'PC Components': '🖥️'
 };
 

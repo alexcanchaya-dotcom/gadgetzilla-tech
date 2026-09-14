@@ -13,26 +13,34 @@ import { SearchBar } from '@/components/SearchBar';
 import { NewsletterPopup } from '@/components/NewsletterPopup';
 import { CompareProducts } from '@/components/CompareProducts';
 import { NativeAdCard } from '@/components/AdBanner';
-import { gadgets as allGadgets, type Gadget, type GadgetCategory } from '@/data/gadgets';
+import { SiteHeader } from '@/components/SiteHeader';
+import {
+  gadgets as allGadgets,
+  formatCatalogUpdatedAt,
+  getNewProducts,
+  type CatalogFilter,
+  type Gadget,
+} from '@/data/gadgets';
 
 export default function HomePage() {
-  const [activeCategory, setActiveCategory] = useState<GadgetCategory | 'All'>('All');
+  const [activeCategory, setActiveCategory] = useState<CatalogFilter>('All');
   const { scrollYProgress } = useScroll();
   const heroParallax = useTransform(scrollYProgress, [0, 0.25], [0, -80]);
+  const newGadgets = useMemo(() => getNewProducts(), []);
 
   const filtered: Gadget[] = useMemo(() => {
     if (activeCategory === 'All') return allGadgets;
+    if (activeCategory === 'New') return newGadgets;
     return allGadgets.filter((g) => g.category === activeCategory);
-  }, [activeCategory]);
+  }, [activeCategory, newGadgets]);
 
-  // Get counts for category badges
   const categoryCounts = useMemo(() => {
-    const counts: Record<string, number> = { All: allGadgets.length };
-    allGadgets.forEach(g => {
+    const counts: Record<string, number> = { All: allGadgets.length, New: newGadgets.length };
+    allGadgets.forEach((g) => {
       counts[g.category] = (counts[g.category] || 0) + 1;
     });
     return counts;
-  }, []);
+  }, [newGadgets]);
 
   return (
     <>
@@ -41,6 +49,8 @@ export default function HomePage() {
 
       {/* Product Comparison */}
       <CompareProducts />
+
+      <SiteHeader />
 
       <main className="mx-auto max-w-6xl space-y-12 px-4 pb-16 pt-10 sm:px-6 lg:px-8">
         {/* Hero Section */}
@@ -68,7 +78,7 @@ export default function HomePage() {
                 <span className="h-2 w-2 rounded-full bg-limePulse animate-ping" aria-hidden />
                 {allGadgets.length} trending now
               </span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-white/70">Updated Tonight 11:00 PM PST</span>
+              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-white/70">Updated {formatCatalogUpdatedAt()}</span>
             </div>
           </div>
 

@@ -7,7 +7,7 @@ export function OrganizationJsonLd() {
     '@type': 'Organization',
     name: 'GadgetZilla',
     url: 'https://gadgetzilla.tech',
-    logo: 'https://gadgetzilla.tech/logo.png',
+    logo: 'https://gadgetzilla.tech/icon',
     description: 'Legendary gadgets for gamers and tech enthusiasts. Daily updated deals on gaming gear, smart home devices, and trending tech.',
     sameAs: [
       'https://twitter.com/gadgetzilla',
@@ -37,13 +37,9 @@ export function WebsiteJsonLd() {
     name: 'GadgetZilla',
     url: 'https://gadgetzilla.tech',
     description: 'Discover the best gaming gear, smart home devices, and trending tech gadgets with daily updated deals.',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: 'https://gadgetzilla.tech/search?q={search_term_string}'
-      },
-      'query-input': 'required name=search_term_string'
+    publisher: {
+      '@type': 'Organization',
+      name: 'GadgetZilla'
     }
   };
 
@@ -82,13 +78,6 @@ export function ProductJsonLd({ product }: { product: Gadget }) {
         name: 'Amazon'
       }
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: (product.score / 20).toFixed(1), // Convert 0-100 to 0-5 scale
-      bestRating: '5',
-      worstRating: '1',
-      ratingCount: Math.floor(Math.random() * 500) + 100 // Placeholder
-    }
   };
 
   return (
