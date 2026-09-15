@@ -28,7 +28,40 @@ These routes ship first and are linked in the header:
 - `/affiliate-disclosure`
 - `/contact`
 
-Canonical host is the apex `https://gadgetzilla.tech`. `www.gadgetzilla.tech` redirects there.
+## Canonical host
+
+Canonical URL is the apex: `https://gadgetzilla.tech`.
+
+`www.gadgetzilla.tech` redirects **once** to that apex. The apex must **not** redirect back to www.
+
+This repo only sends www → apex (`next.config.mjs`, `vercel.json`, `middleware.ts`). Nothing here sends apex → www.
+
+### Vercel Domains (required)
+
+Vercel’s project domain setting is what sent live apex traffic to www (`307`). Combined with this repo’s www → apex (`308`), the site bounced forever and nothing loaded.
+
+In Vercel → Project → Settings → Domains:
+
+1. Keep both `gadgetzilla.tech` and `www.gadgetzilla.tech` assigned.
+2. Set **`gadgetzilla.tech` as the primary production domain**.
+3. On `www.gadgetzilla.tech`, set **Redirect to** `gadgetzilla.tech`.
+4. On `gadgetzilla.tech`, do **not** set a redirect to www.
+
+Merging this repo cannot turn off Vercel’s platform `307`. Flip the primary domain or the loop stays.
+
+After deploy:
+
+```bash
+curl -sI --max-redirs 0 https://gadgetzilla.tech/
+# expect HTTP 200 — not 307 to www
+
+curl -sI --max-redirs 0 https://www.gadgetzilla.tech/
+# expect HTTP 301 or 308
+# location: https://gadgetzilla.tech/
+
+curl -sI --max-redirs 2 https://www.gadgetzilla.tech/
+# expect to land on apex 200 with no further hop
+```
 
 ## Optional environment variables
 

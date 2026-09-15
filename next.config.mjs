@@ -21,7 +21,14 @@ const nextConfig = {
     ]
   },
   async redirects() {
+    // www → apex only. Do not add an apex → www rule; that loops with Vercel.
     return [
+      {
+        source: '/',
+        has: [{ type: 'host', value: 'www.gadgetzilla.tech' }],
+        destination: 'https://gadgetzilla.tech/',
+        permanent: true
+      },
       {
         source: '/:path*',
         has: [{ type: 'host', value: 'www.gadgetzilla.tech' }],
