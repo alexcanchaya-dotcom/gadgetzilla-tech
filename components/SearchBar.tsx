@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
+import { ProductImage } from '@/components/ProductImage';
 import { gadgets, type Gadget } from '@/data/gadgets';
 
 type SearchBarProps = {
@@ -141,27 +141,14 @@ export function SearchBar({ onSelect }: SearchBarProps) {
                   }`}
                   whileHover={{ x: 4 }}
                 >
-                  <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-lg border border-white/10">
-                    <Image
-                      src={gadget.image}
-                      alt={gadget.name}
-                      fill
-                      className="object-cover"
-                    />
+                  <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-lg border border-white/10 bg-white">
+                    <ProductImage src={gadget.image} alt={gadget.name} className="h-full w-full" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-semibold text-white">{gadget.name}</p>
                     <div className="flex items-center gap-2 mt-1">
                       <span className="text-xs text-white/50">{gadget.category}</span>
                       <span className="text-neonBlue font-semibold text-sm">{gadget.price}</span>
-                      <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase ${
-                        gadget.badge === 'DEAL' ? 'bg-blazeOrange/20 text-blazeOrange' :
-                        gadget.badge === 'NEW' ? 'bg-cyberPurple/20 text-cyberPurple' :
-                        gadget.badge === 'HOT' ? 'bg-hotPink/20 text-hotPink' :
-                        'bg-limePulse/20 text-limePulse'
-                      }`}>
-                        {gadget.badge}
-                      </span>
                     </div>
                   </div>
                   <span className="text-white/30">

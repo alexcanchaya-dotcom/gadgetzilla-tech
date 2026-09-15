@@ -1,0 +1,58 @@
+name: Refresh gadgets
+
+on:
+  schedule:
+    - cron: '0 15 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Refresh catalog
+        id: refresh
+        env:
+          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+          AWS_SECRET: ${{ secrets.AWS_SECRET }}
+          PARTNER_TAG: ${{ secrets.PARTNER_TAG }}
+          GADGETS_RSS_URL: ${{ secrets.GADGETS_RSS_URL }}
+          YOUTUBE_PLAYLIST_RSS: ${{ secrets.YOUTUBE_PLAYLIST_RSS }}
+        run: |
+          set -e
+          npm run refresh-gadgets | tee refresh.log
+          if git status --porcelain -- data/catalog.json data/discovered-asins.json | grep -q .; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open pull request
+        if: steps.refresh.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          branch="chore/refresh-gadgets-$(date -u +%Y%m%d)"
+          git config user.name "gadgetzilla-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add data/catalog.json
+          if [ -f data/discovered-asins.json ]; then git add data/discovered-asins.json; fi
+          git commit -m "chore: refresh gadget catalog"
+          git push origin "$branch"
+          gh pr create --title "Refresh gadget catalog" --body "Weekly catalog refresh from PA-API, gadgets.input.json, and/or the configured RSS feed. Review prices and new ASINs before merge."

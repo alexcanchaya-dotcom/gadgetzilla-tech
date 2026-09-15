@@ -7,13 +7,8 @@ export function OrganizationJsonLd() {
     '@type': 'Organization',
     name: 'GadgetZilla',
     url: 'https://gadgetzilla.tech',
-    logo: 'https://gadgetzilla.tech/logo.png',
-    description: 'Legendary gadgets for gamers and tech enthusiasts. Daily updated deals on gaming gear, smart home devices, and trending tech.',
-    sameAs: [
-      'https://twitter.com/gadgetzilla',
-      'https://instagram.com/gadgetzilla',
-      'https://youtube.com/@gadgetzilla'
-    ],
+    logo: 'https://gadgetzilla.tech/icon',
+    description: 'Independent gadget catalog with Amazon Associate links. Prices are snapshots; confirm on Amazon.',
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer support',
@@ -36,14 +31,10 @@ export function WebsiteJsonLd() {
     '@type': 'WebSite',
     name: 'GadgetZilla',
     url: 'https://gadgetzilla.tech',
-    description: 'Discover the best gaming gear, smart home devices, and trending tech gadgets with daily updated deals.',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: 'https://gadgetzilla.tech/search?q={search_term_string}'
-      },
-      'query-input': 'required name=search_term_string'
+    description: 'Independent gadget catalog with Amazon Associate links.',
+    publisher: {
+      '@type': 'Organization',
+      name: 'GadgetZilla'
     }
   };
 
@@ -82,13 +73,6 @@ export function ProductJsonLd({ product }: { product: Gadget }) {
         name: 'Amazon'
       }
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: (product.score / 20).toFixed(1), // Convert 0-100 to 0-5 scale
-      bestRating: '5',
-      worstRating: '1',
-      ratingCount: Math.floor(Math.random() * 500) + 100 // Placeholder
-    }
   };
 
   return (
@@ -159,19 +143,19 @@ export function FaqJsonLd() {
   const faqs = [
     {
       question: 'How does GadgetZilla make money?',
-      answer: 'GadgetZilla is part of the Amazon Associates affiliate program. When you click our links and make a purchase, we earn a small commission at no extra cost to you.'
+      answer: 'GadgetZilla is part of the Amazon Associates affiliate program. When you click our links and make a purchase, we may earn a commission at no extra cost to you.'
     },
     {
-      question: 'Are the deals on GadgetZilla real?',
-      answer: 'Yes! We update our deals daily and verify all prices directly from Amazon. Our deal alerts highlight genuine discounts and price drops.'
+      question: 'Are the prices on GadgetZilla live Amazon prices?',
+      answer: 'No. Listed prices are snapshots from the catalog file. Confirm the current price and stock on Amazon before you buy.'
     },
     {
-      question: 'How do you calculate the Hype Score?',
-      answer: 'Our Hype Score is based on multiple factors including customer reviews, social media buzz, expert ratings, and value for money.'
+      question: 'Do you publish hype scores or hot deals?',
+      answer: 'No. We do not invent scores or mark items as hot deals without a sourced price check.'
     },
     {
-      question: 'Do you offer price tracking?',
-      answer: 'Yes! Sign up for our newsletter to receive price drop alerts on your favorite gadgets.'
+      question: 'What happens if I submit my email?',
+      answer: 'Only if you choose to. See the privacy policy. If a list is not configured, the form opens email to hello@gadgetzilla.tech.'
     }
   ];
 
@@ -202,7 +186,7 @@ export function HomePageJsonLd() {
     <>
       <OrganizationJsonLd />
       <WebsiteJsonLd />
-      <ProductListJsonLd products={gadgets} name="Trending Gadgets" />
+      <ProductListJsonLd products={gadgets} name="Gadget catalog" />
       <FaqJsonLd />
     </>
   );

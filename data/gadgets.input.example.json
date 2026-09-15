@@ -1,0 +1,17 @@
+{
+  "products": [
+    {
+      "id": "your-product-slug",
+      "name": "Product name as you want it shown",
+      "asin": "REPLACE0ASIN",
+      "category": "Gaming Gear",
+      "price": "$99",
+      "originalPrice": "$129",
+      "score": 90,
+      "badge": "NEW",
+      "description": "Copy this file to data/gadgets.input.json. Use a real 10-character Amazon ASIN only. The refresh script skips placeholders.",
+      "image": "https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=900&q=80",
+      "tags": ["Wireless", "RGB"]
+    }
+  ]
+}
