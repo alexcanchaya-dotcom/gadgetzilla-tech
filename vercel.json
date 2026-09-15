@@ -1,6 +1,12 @@
 {
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.gadgetzilla.tech" }],
+      "destination": "https://gadgetzilla.tech/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.gadgetzilla.tech" }],
       "destination": "https://gadgetzilla.tech/:path*",
