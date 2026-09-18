@@ -9,6 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "node --experimental-strip-types --test lib/cost-per-use.test.mjs",
     "refresh-gadgets": "node scripts/refresh-gadgets.mjs"
   },
   "dependencies": {

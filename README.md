@@ -22,6 +22,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 These routes ship first and are linked in the header:
 
+- `/cost-per-use` — free decision number (price ÷ expected uses). Amazon catalog picks sit under the result only.
 - `/about`
 - `/privacy`
 - `/terms`
@@ -80,6 +81,8 @@ Copy `.env.example`. Leave IDs blank until they are real — the site will not i
 | `GADGETS_RSS_URL` or `YOUTUBE_PLAYLIST_RSS` | GitHub Actions (and local) | Feed Al owns that already contains Amazon links |
 
 Without the form webhooks, contact and newsletter open a mailto to `hello@gadgetzilla.tech` instead of faking success.
+
+GA4 and AdSense stay off until those public IDs are real. When you have an AdSense publisher ID, add `public/ads.txt` (served at `/ads.txt`). Do not commit a placeholder publisher line.
 
 ## Refresh the gadget catalog
 

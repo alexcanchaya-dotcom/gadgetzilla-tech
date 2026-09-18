@@ -154,6 +154,10 @@ export function FaqJsonLd() {
       answer: 'No. We do not invent scores or mark items as hot deals without a sourced price check.'
     },
     {
+      question: 'What is cost per use?',
+      answer: 'A free decision number: price divided by how many times you will use the gadget. No email is required. Catalog Amazon links appear only after that number.'
+    },
+    {
       question: 'What happens if I submit my email?',
       answer: 'Only if you choose to. See the privacy policy. If a list is not configured, the form opens email to hello@gadgetzilla.tech.'
     }

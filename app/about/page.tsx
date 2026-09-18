@@ -25,6 +25,9 @@ export default function AboutPage() {
       <p>
         A curated catalog of gaming gear, audio, wearables, smart home, and PC parts. Listings live in a public file in the repo. We do not scrape Amazon from your browser, and we do not invent live “hot deals” or hype scores.
       </p>
+      <p>
+        The <Link href="/cost-per-use">cost-per-use</Link> page turns a price and how often you use a gadget into one named number. Amazon catalog picks sit under that free result, not before it.
+      </p>
       <h2>How we make money</h2>
       <p>
         If you buy through our links, we may earn an Amazon Associate commission at no extra cost to you. Details are on the{' '}
