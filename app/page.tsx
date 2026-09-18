@@ -9,6 +9,7 @@ import { Footer } from '@/components/Footer';
 import VideoSection from '@/components/VideoSection';
 import { SearchBar } from '@/components/SearchBar';
 import { NativeAdCard } from '@/components/AdBanner';
+import { CostPerUseCalculator } from '@/components/CostPerUseCalculator';
 import { SiteHeader } from '@/components/SiteHeader';
 import {
   gadgets as allGadgets,
@@ -45,6 +46,18 @@ export default function HomePage() {
 
         <section className="flex justify-center">
           <SearchBar />
+        </section>
+
+        <section className="rounded-3xl border border-white/10 bg-night/70 p-6 sm:p-8" id="cost-per-use">
+          <div className="mb-6 max-w-3xl">
+            <p className="text-xs uppercase tracking-[0.2em] text-white/50">Decision number</p>
+            <h2 className="text-2xl font-bold text-white">Cost per use</h2>
+            <p className="mt-2 text-sm text-white/70">
+              Type a price, how often you will use the gadget, and how long you will keep it. You get one number.
+              Amazon catalog links appear under that result only — no email wall.
+            </p>
+          </div>
+          <CostPerUseCalculator />
         </section>
 
         <section className="rounded-3xl border border-white/10 bg-night/70 p-6 sm:p-8" id="catalog">

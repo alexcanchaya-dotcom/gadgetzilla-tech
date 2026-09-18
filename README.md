@@ -18,10 +18,17 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## Cost per use
+
+The homepage and `/cost-per-use` share one calculator. The decision number is **cost per use** (price ÷ expected uses). Amazon Associate / catalog picks render only under that free result, with the existing Associates disclosure. There is no email wall.
+
+Keep-vs-upgrade is not a second primary CTA.
+
 ## Trust pages
 
 These routes ship first and are linked in the header:
 
+- `/cost-per-use`
 - `/about`
 - `/privacy`
 - `/terms`
@@ -72,6 +79,8 @@ Copy `.env.example`. Leave IDs blank until they are real — the site will not i
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Vercel | Loads Google Analytics |
 | `NEXT_PUBLIC_ADSENSE_CLIENT` | Vercel | Loads AdSense |
 | `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Vercel | Search Console meta tag |
+
+This PR does not invent AdSense units. When a real publisher ID exists, add `public/ads.txt` and keep using `TrackingScripts` / `AdBanner` (they stay dark until the env IDs are set).
 | `NEWSLETTER_WEBHOOK_URL` | Vercel | Forwards newsletter signups |
 | `CONTACT_WEBHOOK_URL` | Vercel | Forwards contact form posts |
 | `AWS_ACCESS_KEY` | GitHub Actions (and local) | PA-API access key |

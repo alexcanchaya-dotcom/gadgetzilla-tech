@@ -15,13 +15,16 @@ export default function PrivacyPage() {
       title="Privacy Policy"
       intro="This policy covers gadgetzilla.tech. We keep collection small: the site is a public catalog. We only run analytics or ads if those IDs are actually configured."
     >
-      <p>Last updated: September 14, 2026</p>
+      <p>Last updated: September 18, 2026</p>
       <h2>Who we are</h2>
       <p>
         GadgetZilla is operated at <a href={SITE_URL}>{SITE_URL}</a>. Contact: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
       </p>
       <h2>What we collect</h2>
       <ul>
+        <li>
+          <strong>Calculator numbers.</strong> Cost-per-use inputs stay in your browser so we can show the number. We do not require email to see the result, and we do not send those numbers to a server.
+        </li>
         <li>
           <strong>Newsletter or contact email.</strong> If you submit a form, we receive the address and message you typed. If a newsletter webhook is configured, the email is forwarded to that provider. If it is not configured, the form opens your email app so you can write us directly. We do not pretend a signup succeeded when nothing was stored.
         </li>
