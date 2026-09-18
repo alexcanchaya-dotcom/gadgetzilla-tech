@@ -156,6 +156,10 @@ export function FaqJsonLd() {
     {
       question: 'What happens if I submit my email?',
       answer: 'Only if you choose to. See the privacy policy. If a list is not configured, the form opens email to hello@gadgetzilla.tech.'
+    },
+    {
+      question: 'What is cost per use?',
+      answer: 'A free calculator. Type a price, uses per week, and months you will keep the gadget. The decision number is price divided by expected uses. Amazon links appear under that result only. No email is required.'
     }
   ];
 

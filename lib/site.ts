@@ -12,6 +12,7 @@ export function shouldRedirectWwwToApex(hostHeader: string | null | undefined) {
 }
 
 export const navLinks = [
+  { href: '/cost-per-use', label: 'Cost per use' },
   { href: '/about', label: 'About' },
   { href: '/privacy', label: 'Privacy' },
   { href: '/terms', label: 'Terms' },

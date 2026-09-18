@@ -27,8 +27,14 @@ export function Hero() {
           </p>
           <div className="flex flex-wrap items-center gap-4">
             <a
-              href="#catalog"
+              href="#cost-per-use"
               className="rounded-full bg-gradient-to-r from-cyberPurple to-neonBlue px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-night"
+            >
+              See cost per use
+            </a>
+            <a
+              href="#catalog"
+              className="text-sm font-semibold text-white/70 underline decoration-white/30 underline-offset-4 hover:text-white"
             >
               Browse the catalog
             </a>
