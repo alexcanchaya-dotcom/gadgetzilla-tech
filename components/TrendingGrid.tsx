@@ -17,7 +17,7 @@ export function TrendingGrid({ gadgets }: Props) {
         >
           <div className="overflow-hidden rounded-xl border border-white/5 bg-white">
             <div className="relative aspect-[4/3]">
-              <ProductImage src={gadget.image} alt={gadget.name} className="h-full w-full" />
+              <ProductImage src={gadget.image} alt={gadget.name} asin={gadget.asin} className="h-full w-full" />
             </div>
           </div>
 

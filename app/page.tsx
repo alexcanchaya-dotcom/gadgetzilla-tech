@@ -6,7 +6,6 @@ import { CategoryFilters } from '@/components/CategoryFilters';
 import { TrendingGrid } from '@/components/TrendingGrid';
 import { FeatureHighlights } from '@/components/FeatureHighlights';
 import { Footer } from '@/components/Footer';
-import VideoSection from '@/components/VideoSection';
 import { SearchBar } from '@/components/SearchBar';
 import { NativeAdCard } from '@/components/AdBanner';
 import { SiteHeader } from '@/components/SiteHeader';
@@ -63,10 +62,6 @@ export default function HomePage() {
         </section>
 
         <NativeAdCard />
-
-        <section className="rounded-3xl border border-white/10 bg-night/70 p-6 sm:p-8">
-          <VideoSection />
-        </section>
 
         <section className="rounded-3xl border border-white/10 bg-night/70 p-6 sm:p-8">
           <div className="flex flex-col gap-2 pb-4">

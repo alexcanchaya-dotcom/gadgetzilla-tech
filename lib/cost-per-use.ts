@@ -78,3 +78,25 @@ export function formatUses(totalUses: number): string {
   if (totalUses >= 10) return Math.round(totalUses).toLocaleString('en-US');
   return totalUses.toLocaleString('en-US', { maximumFractionDigits: 1 });
 }
+
+/**
+ * After a catalog/prefill change, never keep a prior decision number.
+ * Recalculate when the new price and remaining inputs are valid; otherwise clear.
+ */
+export function resultAfterCatalogPrefill(input: {
+  price: number | null;
+  usesPerWeek: number | null;
+  monthsKept: number | null;
+}): CostPerUseResult | null {
+  if (input.price == null || input.usesPerWeek == null || input.monthsKept == null) {
+    return null;
+  }
+
+  const next = calculateCostPerUse({
+    price: input.price,
+    usesPerWeek: input.usesPerWeek,
+    monthsKept: input.monthsKept,
+  });
+
+  return isCostPerUseResult(next) ? next : null;
+}

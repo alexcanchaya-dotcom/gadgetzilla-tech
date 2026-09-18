@@ -142,7 +142,7 @@ export function SearchBar({ onSelect }: SearchBarProps) {
                   whileHover={{ x: 4 }}
                 >
                   <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-lg border border-white/10 bg-white">
-                    <ProductImage src={gadget.image} alt={gadget.name} className="h-full w-full" />
+                    <ProductImage src={gadget.image} alt={gadget.name} asin={gadget.asin} className="h-full w-full" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-semibold text-white">{gadget.name}</p>

@@ -1,10 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import { resolveProductImageSrc } from '@/lib/product-image';
 
 type ProductImageProps = {
   src: string;
   alt: string;
+  asin?: string;
   className?: string;
 };
 
@@ -12,34 +14,32 @@ function isTinyPlaceholder(img: HTMLImageElement) {
   return img.naturalWidth < 24 || img.naturalHeight < 24;
 }
 
-export function ProductImage({ src, alt, className = '' }: ProductImageProps) {
-  const [failed, setFailed] = useState(false);
-  const initials = alt
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((part) => part[0] || '')
-    .join('')
-    .toUpperCase();
+export function ProductImage({ src, alt, asin, className = '' }: ProductImageProps) {
+  const resolved = resolveProductImageSrc(src, asin);
+  const [failedFor, setFailedFor] = useState<string | null>(null);
+  const failed = !resolved || failedFor === resolved;
 
-  if (failed || !src) {
+  if (failed) {
     return (
-      <div className={`flex items-center justify-center bg-white/10 text-sm font-semibold tracking-wide text-white/70 ${className}`}>
-        {initials || 'GZ'}
+      <div
+        className={`flex items-center justify-center bg-slate-100 px-3 text-center text-sm font-semibold leading-snug text-slate-700 ${className}`}
+      >
+        <span className="line-clamp-3">{alt || 'Product'}</span>
       </div>
     );
   }
 
   return (
-    // Regular img avoids Vercel/Next optimizer blanks on hotlinked Unsplash URLs.
+    // Regular img avoids optimizer blanks on hotlinked Amazon URLs.
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={src}
+      src={resolved}
       alt={alt}
       referrerPolicy="no-referrer"
       className={`object-contain bg-white ${className}`}
-      onError={() => setFailed(true)}
+      onError={() => setFailedFor(resolved)}
       onLoad={(event) => {
-        if (isTinyPlaceholder(event.currentTarget)) setFailed(true);
+        if (isTinyPlaceholder(event.currentTarget)) setFailedFor(resolved);
       }}
     />
   );

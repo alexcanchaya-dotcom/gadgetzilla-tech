@@ -63,6 +63,16 @@ function amazonUrlForAsin(asin) {
   return `https://www.amazon.com/dp/${asin}?tag=${AFFILIATE_TAG}`;
 }
 
+function amazonImageForAsin(asin) {
+  return isRealAsin(asin) ? `https://m.media-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg` : '';
+}
+
+function catalogImage(product, asin) {
+  const current = String(product.image || '').trim();
+  if (current.includes('unsplash.com')) return amazonImageForAsin(asin);
+  return current;
+}
+
 function slugify(value) {
   return String(value)
     .toLowerCase()
@@ -235,7 +245,7 @@ function normalizeIncoming(product, nowIso) {
     score: Number(product.score) || 90,
     badge: product.badge || 'NEW',
     description: product.description || `${name} — added from the catalog refresh.`,
-    image: product.image || 'https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=900&q=80',
+    image: catalogImage(product, asin),
     amazonUrl: amazonUrlForAsin(asin),
     tags: Array.isArray(product.tags) ? product.tags : [],
     dealEndsAt: product.dealEndsAt,
@@ -250,8 +260,10 @@ function applyPaapiItem(existing, live, nowIso) {
   if (live.price) next.price = live.price;
   if (live.originalPrice) next.originalPrice = live.originalPrice;
   else if (live.price && existing.originalPrice === live.price) delete next.originalPrice;
-  if (live.image && String(existing.image || '').includes('unsplash.com')) {
+  if (live.image) {
     next.image = live.image;
+  } else if (!existing.image || String(existing.image).includes('unsplash.com')) {
+    next.image = amazonImageForAsin(live.asin);
   }
   next.amazonUrl = amazonUrlForAsin(live.asin);
   next.asin = live.asin;
@@ -374,6 +386,11 @@ async function main() {
   for (const product of products) {
     if (product.asin) product.amazonUrl = amazonUrlForAsin(product.asin);
     else product.amazonUrl = withAffiliateTag(product.amazonUrl);
+    const nextImage = catalogImage(product, product.asin);
+    if (nextImage !== product.image) {
+      product.image = nextImage;
+      changed = true;
+    }
   }
 
   if (!changed) {
