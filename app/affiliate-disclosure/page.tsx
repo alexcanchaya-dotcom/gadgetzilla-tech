@@ -30,6 +30,11 @@ export default function AffiliateDisclosurePage() {
       <p>
         Picks are editorial. We keep them in a public catalog file. We do not scrape Amazon from your browser, and we do not invent a hype score or a “hot deal” badge.
       </p>
+      <h2>Cost per use</h2>
+      <p>
+        The <Link href="/cost-per-use">cost-per-use</Link> tool is free and does not ask for email before the number.
+        Catalog links under that result use the same Associate tag. The number is simple division, not a buy or keep recommendation.
+      </p>
       <h2>Other disclosures</h2>
       <p>
         If we ever run a paid placement that is not a standard Associate link, we will mark it as sponsored. Display ads only appear if a real AdSense publisher ID is configured.

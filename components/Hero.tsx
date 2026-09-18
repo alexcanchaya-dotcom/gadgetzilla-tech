@@ -32,6 +32,9 @@ export function Hero() {
             >
               Browse the catalog
             </a>
+            <a href="/cost-per-use" className="text-sm font-semibold text-white/70 underline decoration-white/30 underline-offset-4 hover:text-white">
+              Cost per use
+            </a>
             <a href="/affiliate-disclosure" className="text-sm font-semibold text-white/70 underline decoration-white/30 underline-offset-4 hover:text-white">
               Affiliate disclosure
             </a>

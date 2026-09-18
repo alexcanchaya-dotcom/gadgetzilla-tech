@@ -43,6 +43,7 @@ export default function PrivacyPage() {
         <li>We do not sell your email or browsing data.</li>
         <li>We do not scrape Amazon from your browser.</li>
         <li>We do not require an account to browse the catalog.</li>
+        <li>We do not send cost-per-use inputs to a server. That number is calculated in your browser.</li>
       </ul>
       <h2>Cookies</h2>
       <p>
