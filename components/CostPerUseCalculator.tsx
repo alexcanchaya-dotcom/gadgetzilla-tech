@@ -23,11 +23,11 @@ type CalculatorState = {
   months: string;
 };
 
-const emptyState: CalculatorState = {
+const exampleState: CalculatorState = {
   catalogId: OWN_PRICE,
-  price: '',
-  usesPerWeek: '',
-  months: '',
+  price: '119',
+  usesPerWeek: '4',
+  months: '24',
 };
 
 function readNumber(value: string): number {
@@ -35,7 +35,7 @@ function readNumber(value: string): number {
 }
 
 export function CostPerUseCalculator() {
-  const [draft, setDraft] = useState<CalculatorState>(emptyState);
+  const [draft, setDraft] = useState<CalculatorState>(exampleState);
   const [submitted, setSubmitted] = useState<CalculatorState | null>(null);
 
   const selectedGadget = useMemo(
@@ -75,7 +75,15 @@ export function CostPerUseCalculator() {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSubmitted({ ...draft });
+    const form = new FormData(event.currentTarget);
+    const next: CalculatorState = {
+      catalogId: String(form.get('catalogId') ?? draft.catalogId),
+      price: String(form.get('price') ?? draft.price),
+      usesPerWeek: String(form.get('usesPerWeek') ?? draft.usesPerWeek),
+      months: String(form.get('months') ?? draft.months),
+    };
+    setDraft(next);
+    setSubmitted(next);
   };
 
   return (
@@ -84,6 +92,7 @@ export function CostPerUseCalculator() {
         <label className="sm:col-span-2">
           <span className="mb-2 block text-sm font-semibold text-white">Optional catalog snapshot</span>
           <select
+            name="catalogId"
             value={draft.catalogId}
             onChange={(event) => handleCatalogChange(event.target.value)}
             className="w-full rounded-2xl border border-white/15 bg-night/80 px-4 py-3 text-sm text-white outline-none focus:border-neonBlue"
@@ -105,6 +114,7 @@ export function CostPerUseCalculator() {
           <span className="relative block">
             <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-white/50">$</span>
             <input
+              name="price"
               type="number"
               inputMode="decimal"
               min="0.01"
@@ -112,7 +122,6 @@ export function CostPerUseCalculator() {
               required
               value={draft.price}
               onChange={(event) => setDraft((current) => ({ ...current, price: event.target.value }))}
-              placeholder="119"
               className="w-full rounded-2xl border border-white/15 bg-white/5 py-3 pl-8 pr-4 text-white outline-none focus:border-neonBlue"
             />
           </span>
@@ -121,6 +130,7 @@ export function CostPerUseCalculator() {
         <label>
           <span className="mb-2 block text-sm font-semibold text-white">Uses per week</span>
           <input
+            name="usesPerWeek"
             type="number"
             inputMode="decimal"
             min="0.1"
@@ -128,7 +138,6 @@ export function CostPerUseCalculator() {
             required
             value={draft.usesPerWeek}
             onChange={(event) => setDraft((current) => ({ ...current, usesPerWeek: event.target.value }))}
-            placeholder="4"
             className="w-full rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white outline-none focus:border-neonBlue"
           />
         </label>
@@ -136,6 +145,7 @@ export function CostPerUseCalculator() {
         <label className="sm:col-span-2">
           <span className="mb-2 block text-sm font-semibold text-white">Months you will keep it</span>
           <input
+            name="months"
             type="number"
             inputMode="decimal"
             min="1"
@@ -143,7 +153,6 @@ export function CostPerUseCalculator() {
             required
             value={draft.months}
             onChange={(event) => setDraft((current) => ({ ...current, months: event.target.value }))}
-            placeholder="24"
             className="w-full rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white outline-none focus:border-neonBlue"
           />
         </label>
@@ -156,7 +165,8 @@ export function CostPerUseCalculator() {
             See cost per use
           </button>
           <p className="mt-3 text-xs text-white/50">
-            Free. No email. The number is arithmetic from what you type, not a review.
+            Example numbers are filled in so you can click once. Change them if you want. Free. No email. The
+            number is arithmetic from those inputs, not a review.
           </p>
         </div>
       </form>
