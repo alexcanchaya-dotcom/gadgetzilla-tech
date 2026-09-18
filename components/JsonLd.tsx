@@ -55,7 +55,7 @@ export function ProductJsonLd({ product }: { product: Gadget }) {
     '@type': 'Product',
     name: product.name,
     description: product.description,
-    image: product.image,
+    ...(product.image ? { image: product.image } : {}),
     category: product.category,
     brand: {
       '@type': 'Brand',
@@ -97,7 +97,7 @@ export function ProductListJsonLd({ products, name }: { products: Gadget[]; name
         '@type': 'Product',
         name: product.name,
         description: product.description,
-        image: product.image,
+        ...(product.image ? { image: product.image } : {}),
         url: product.amazonUrl,
         offers: {
           '@type': 'Offer',

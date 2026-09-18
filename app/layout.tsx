@@ -62,10 +62,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${rajdhani.variable}`}>
       <head>
         <TrackingScripts />
-        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://m.media-amazon.com" />
         <link rel="preconnect" href="https://www.amazon.com" />
         {adsenseClient ? <link rel="preconnect" href="https://pagead2.googlesyndication.com" /> : null}
-        <link rel="dns-prefetch" href="https://www.youtube.com" />
       </head>
       <body className="font-body antialiased">
         <HomePageJsonLd />

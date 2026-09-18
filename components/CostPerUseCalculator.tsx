@@ -13,6 +13,7 @@ import {
   isCostPerUseResult,
   parseCatalogPrice,
   parseMoney,
+  resultAfterCatalogPrefill,
   type CostPerUseResult,
 } from '@/lib/cost-per-use';
 
@@ -52,6 +53,14 @@ export function CostPerUseCalculator() {
     setCatalogId(gadget.id);
     setCategory(gadget.category);
     if (parsed != null) setPriceInput(String(parsed));
+    setError('');
+    setResult(
+      resultAfterCatalogPrefill({
+        price: parsed,
+        usesPerWeek: parseMoney(usesPerWeekInput),
+        monthsKept: parseMoney(monthsKeptInput),
+      }),
+    );
   };
 
   const handleCatalogChange = (id: string) => {
@@ -248,7 +257,7 @@ function ResultAffiliatePicks({
             <li key={gadget.id} className="overflow-hidden rounded-2xl border border-white/10 bg-night/60 p-4">
               <div className="overflow-hidden rounded-xl border border-white/5 bg-white">
                 <div className="relative aspect-[4/3]">
-                  <ProductImage src={gadget.image} alt={gadget.name} className="h-full w-full" />
+                  <ProductImage src={gadget.image} alt={gadget.name} asin={gadget.asin} className="h-full w-full" />
                 </div>
               </div>
               <p className="mt-3 text-xs uppercase tracking-[0.16em] text-white/50">{gadget.category}</p>
