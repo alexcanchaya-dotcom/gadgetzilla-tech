@@ -13,9 +13,9 @@ export default function PrivacyPage() {
   return (
     <LegalPage
       title="Privacy Policy"
-      intro="This policy covers gadgetzilla.tech. We keep collection small: the site is a public catalog. We only run analytics or ads if those IDs are actually configured."
+      intro="This policy covers gadgetzilla.tech. We keep collection small: the site is a public catalog. We count anonymous page views with cookieless Vercel Web Analytics. Google Analytics or ads only run if those IDs are actually configured."
     >
-      <p>Last updated: September 14, 2026</p>
+      <p>Last updated: October 4, 2026</p>
       <h2>Who we are</h2>
       <p>
         GadgetZilla is operated at <a href={SITE_URL}>{SITE_URL}</a>. Contact: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
@@ -29,7 +29,10 @@ export default function PrivacyPage() {
           <strong>Server logs.</strong> Our host (Vercel) may log standard request data such as IP address, user agent, and the page requested.
         </li>
         <li>
-          <strong>Optional analytics.</strong> Google Analytics loads only when a real measurement ID is set in the environment. Placeholder IDs are not used.
+          <strong>Vercel Web Analytics.</strong> We use Vercel Web Analytics to count page views. It is cookieless and anonymous: it sets no cookies, does not identify you, and only gives us aggregated numbers such as page views, referring sites, country, and device type.
+        </li>
+        <li>
+          <strong>Optional Google Analytics.</strong> Google Analytics loads only when a real measurement ID is set in the environment. Placeholder IDs are not used.
         </li>
         <li>
           <strong>Optional ads.</strong> Google AdSense loads only when a real publisher ID is set. Otherwise no AdSense script runs.
@@ -47,7 +50,7 @@ export default function PrivacyPage() {
       </ul>
       <h2>Cookies</h2>
       <p>
-        The site itself stores a couple of local preferences in your browser (for example, dismissing the newsletter popup). Third-party cookies appear only if you use Amazon, or if analytics/ads IDs are configured.
+        The site itself does not set cookies, and Vercel Web Analytics is cookieless. Third-party cookies appear only if you use Amazon, or if Google Analytics or AdSense IDs are configured.
       </p>
       <h2>Retention and requests</h2>
       <p>

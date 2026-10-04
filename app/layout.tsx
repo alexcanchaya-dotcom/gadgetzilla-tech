@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Rajdhani } from 'next/font/google';
 import './globals.css';
+import { Analytics } from '@vercel/analytics/next';
 import { TrackingScripts } from '@/components/TrackingScripts';
 import { SITE_URL } from '@/lib/site';
 
@@ -73,6 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="relative">
           {children}
         </div>
+        <Analytics />
       </body>
     </html>
   );
