@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Rajdhani } from 'next/font/google';
 import './globals.css';
-import { HomePageJsonLd } from '@/components/JsonLd';
 import { TrackingScripts } from '@/components/TrackingScripts';
 import { SITE_URL } from '@/lib/site';
 
@@ -67,7 +66,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {adsenseClient ? <link rel="preconnect" href="https://pagead2.googlesyndication.com" /> : null}
       </head>
       <body className="font-body antialiased">
-        <HomePageJsonLd />
         <div className="fixed inset-0 pointer-events-none opacity-70" aria-hidden>
           <div className="absolute inset-0 hero-gradient" />
           <div className="absolute inset-0 bg-grid-glow bg-[length:80px_80px]" />

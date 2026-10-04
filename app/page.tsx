@@ -9,6 +9,7 @@ import { Footer } from '@/components/Footer';
 import { SearchBar } from '@/components/SearchBar';
 import { NativeAdCard } from '@/components/AdBanner';
 import { SiteHeader } from '@/components/SiteHeader';
+import { HomePageJsonLd } from '@/components/JsonLd';
 import {
   gadgets as allGadgets,
   formatCatalogUpdatedAt,
@@ -37,6 +38,7 @@ export default function HomePage() {
 
   return (
     <>
+      <HomePageJsonLd />
       <SiteHeader />
 
       <main className="mx-auto max-w-6xl space-y-12 px-4 pb-16 pt-10 sm:px-6 lg:px-8">
