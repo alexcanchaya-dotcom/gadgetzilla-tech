@@ -1,5 +1,3 @@
-import { gadgets, type Gadget } from '@/data/gadgets';
-
 // Organization Schema
 export function OrganizationJsonLd() {
   const schema = {
@@ -36,77 +34,6 @@ export function WebsiteJsonLd() {
       '@type': 'Organization',
       name: 'GadgetZilla'
     }
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  );
-}
-
-// Product Schema for individual products
-export function ProductJsonLd({ product }: { product: Gadget }) {
-  const priceValue = product.price.replace('$', '').replace(',', '');
-
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: product.name,
-    description: product.description,
-    ...(product.image ? { image: product.image } : {}),
-    category: product.category,
-    brand: {
-      '@type': 'Brand',
-      name: product.name.split(' ')[0] // Extract brand from product name
-    },
-    offers: {
-      '@type': 'Offer',
-      url: product.amazonUrl,
-      priceCurrency: 'USD',
-      price: priceValue,
-      priceValidUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-      availability: 'https://schema.org/InStock',
-      seller: {
-        '@type': 'Organization',
-        name: 'Amazon'
-      }
-    },
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  );
-}
-
-// ItemList Schema for product collections
-export function ProductListJsonLd({ products, name }: { products: Gadget[]; name: string }) {
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: name,
-    numberOfItems: products.length,
-    itemListElement: products.slice(0, 10).map((product, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      item: {
-        '@type': 'Product',
-        name: product.name,
-        description: product.description,
-        ...(product.image ? { image: product.image } : {}),
-        url: product.amazonUrl,
-        offers: {
-          '@type': 'Offer',
-          priceCurrency: 'USD',
-          price: product.price.replace('$', '').replace(',', ''),
-          availability: 'https://schema.org/InStock'
-        }
-      }
-    }))
   };
 
   return (
@@ -184,13 +111,13 @@ export function FaqJsonLd() {
   );
 }
 
-// Combined Schema component for homepage
+// Combined Schema component for the homepage only (rendered from app/page.tsx).
+// No product/offer data: catalog prices are snapshots and stock is not checked.
 export function HomePageJsonLd() {
   return (
     <>
       <OrganizationJsonLd />
       <WebsiteJsonLd />
-      <ProductListJsonLd products={gadgets} name="Gadget catalog" />
       <FaqJsonLd />
     </>
   );
