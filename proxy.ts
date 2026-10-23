@@ -7,7 +7,7 @@ import { CANONICAL_HOST, shouldRedirectWwwToApex } from '@/lib/site';
  * Never send gadgetzilla.tech to www — that is what caused the live redirect loop
  * when Vercel’s primary domain was www (307) and this app sent www back (308).
  */
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const host = request.headers.get('host') ?? request.nextUrl.host;
 
   if (!shouldRedirectWwwToApex(host)) {
